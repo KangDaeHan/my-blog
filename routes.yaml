@@ -1,0 +1,12 @@
+routes:
+  
+collections:
+  /:
+    permalink: /{slug}/
+    template: index
+  /twins/:
+    permalink: /twins/
+
+taxonomies:
+  tag: /tag/{slug}/
+  author: /author/{slug}/

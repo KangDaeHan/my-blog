@@ -1,0 +1,65 @@
+{{!< default}}
+
+<div class="container">
+    <div class="row">
+        <div class="content-column col-lg-8">
+            <div class="content-area">
+                <main class="site-main">
+                    {{#post}}
+                        <article
+                            class="{{post_class}}{{#unless feature_image}} no-image{{/unless}} single u-shadow">
+                            {{> post-header tag="h1" hide_link=true}}
+                            <div class="post-meta">
+                                <time class="post-meta-date"
+                                    datetime="{{date format="YYYY-MM-DD(dd) a h:mm"}}"> 
+                                    {{date published_at format="ll(dd) a h:mm"}}
+                                </time>
+                                <span
+                                    class="post-meta-length">{{reading_time}}</span>
+                            </div>
+                            {{> post-media}}
+                            <div class="post-wrapper">
+                                <div class="post-content u-text-format">
+                                    {{content}}
+                                </div>
+                                {{> tags}}
+                                {{> share}}
+                            </div>
+                        </article>
+                        {{> author}}
+                        {{> post-navigation}}
+                        {{> comment}}
+
+                        <div class="container large">
+                            <div id="disqus_thread"></div>
+                        </div>
+                        <script>
+                            /**
+                            *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                            *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+                            /*
+                            var disqus_config = function () {
+                            this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+                            this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                            };
+                            */
+                            (function() { // DON'T EDIT BELOW THIS LINE
+                            var d = document, s = d.createElement('script');
+                            s.src = 'https://devlogstory.disqus.com/embed.js';
+                            s.setAttribute('data-timestamp', +new Date());
+                            (d.head || d.body).appendChild(s);
+                            })();
+                        </script>
+                        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                    {{/post}}
+                </main>
+            </div>
+        </div>
+        <div class="related-column col-lg-2 hidden-xs hidden-sm hidden-md">
+            {{> related}}
+        </div>
+        <div class="sidebar-column col-lg-2 hidden-xs hidden-sm hidden-md">
+            {{> widgets/widgets}}
+        </div>
+    </div>
+</div>

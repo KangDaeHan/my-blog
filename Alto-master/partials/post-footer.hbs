@@ -1,0 +1,21 @@
+<footer class="post-footer">
+    <div class="post-action">
+        <a class="post-link primary" href="{{url}}">Read Now</a>
+        <a class="post-link secondary" href="https://getpocket.com/edit?url={{url absolute="true"}}"
+            target="_blank">Read Later</a>
+    </div>
+    <div class="post-author">
+        {{#foreach authors}}
+            {{#if profile_image}}
+                <a class="post-author-image-link" href="{{url}}">
+                    <img class="post-author-image" src="{{img_url profile_image size="xs"}}" alt="{{name}}">
+                </a>
+            {{/if}}
+
+            <div class="post-author-name hidden-xs hidden-sm">
+                <span class="post-author-by">By: </span>
+                <a class="post-author-name-link" href="{{url}}">{{name}}</a>
+            </div>
+        {{/foreach}}
+    </div>
+</footer>
